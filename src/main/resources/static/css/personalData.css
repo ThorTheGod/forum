@@ -1,0 +1,186 @@
+body
+{
+    background-color: rgb(248, 248, 248);
+    width: 100%;
+    letter-spacing: 1px;
+    margin: 0;
+    padding: 0;
+}
+body a
+{
+    text-decoration: none;
+    color: rgb(112, 111, 111);
+}
+
+/*顶部*/
+.header
+{
+    margin-top: 20px;
+    margin-left: 8%;
+    width: 82%;
+    overflow: hidden;
+}
+.header span 
+{
+    float: left;
+}
+.header_part1
+{
+    width: 100%;
+    margin-right: 30%;
+    /*border: 1px solid black;*/
+}
+.header_img1  /*更换头像*/
+{
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+}
+#submit_btn /*保存图像按钮*/
+{
+    color: white;
+    height: 32px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    width: 100px;  
+    letter-spacing: 2px;
+    background-color: rgb(15,144,181);
+}
+#header_img2 /*返回上一页面图标*/
+{
+    width: 60px;
+    height: 60px;
+    margin-top: 30px;
+    /*border: 1px solid black;*/
+}
+
+/*主体部分*/
+.main_part
+{
+    width: 82%;
+    display: block;
+    margin-top: 10px;
+    overflow: hidden;
+    margin-left: 8%;
+}
+/*基本信息*/
+.information
+{
+    width: 100%;
+    height: auto;
+    background-color: white;
+    overflow: hidden;
+    padding: 20px;
+    margin-top: 10px;
+}
+.information span
+{
+    float: left;
+}
+.top_part
+{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    display: block;
+}
+.top_part span
+{
+    float: left;
+}
+/*标题*/
+.title
+{
+    width: 30%;
+    text-align: left;
+}
+.title h1
+{
+    font-size: 20px;
+    color: rgb(112, 111, 111);
+}
+/*按钮*/
+.button
+{
+    width: 30%;
+    text-align: right;
+    margin: 5px 0 5px 0;
+    margin-left: 35%;
+}
+.button button
+{
+    height: 32px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    width: 60px;  
+    letter-spacing: 2px;
+}
+.button a
+{
+    color: white;
+}
+#button_1 /*确定*/
+{
+    background-color: rgb(15,144,181);
+}
+#button_2 /*取消*/
+{
+    background-color: rgb(195,43,43);
+    margin-left: 6%;
+}
+
+.context
+{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    display: block;
+}
+.context td
+{
+    color: rgb(112, 111, 111);
+    font-size: 16px;
+    text-align: left;
+    height: 40px;
+}
+input[type=text],input[type=password],input[type=email]
+{
+    width: 200%;
+    height: 36px;
+    padding: 0 10px 0 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(167, 166, 166);
+}
+input[type=date]
+{
+    width: 120%;
+    height: 36px;
+    border-radius: 5px;
+    padding: 0 10px 0 10px;
+    border: 1px solid rgb(167, 166, 166);
+}
+#message
+{
+    font-size: 14px;
+}
+/*头像更换*/
+.headImg
+{
+    width: 150px;
+    height: auto;
+}
+.headBtn
+{
+    width: 30%;
+    margin-left: 10px;
+}
+#change_file
+{
+    margin-top: 30px;
+}
+#submit_btn
+{
+    margin-top: 10px;
+}

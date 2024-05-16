@@ -1,0 +1,84 @@
+body
+{
+    background-color: rgb(248, 248, 248);
+    width: 100%;
+    letter-spacing: 1px;
+    margin: 0;
+    padding: 0;
+}
+body a{
+    text-decoration: none;
+}
+/*登录框*/
+.login
+{
+    width: 40%;
+    display: block;
+    overflow: hidden;
+    margin-top: 100px;
+    margin-left: 30%;
+    position: fixed;
+    text-align: center;
+    background-color: white;
+    border: 1px solid rgb(173, 173, 173);
+    border-radius: 5px;
+}
+/*“登录”标题*/
+.login_top 
+{
+    width: 80%;
+    margin-left: 10%;
+    border-bottom: 1.5px solid rgb(173, 173, 173);
+}
+.login_top h1 
+{
+    margin-top: 20px;
+    font-size: 20px;
+    color: rgb(112, 111, 111);
+    letter-spacing: 4px;
+}
+/*输入框：用户名、密码信息*/
+.login_center
+{
+    width: 100%;
+    padding: 30px 0 30px 0;
+}
+#username
+{
+    height: 25px;
+}
+#password
+{
+    height: 25px;
+    margin-top: 15px;
+}
+/*按钮部分*/
+.login_button
+{
+    width: 100%;
+    padding: 0 0 30px 0;
+    font-size: 14px;
+}
+#register_btn
+{
+    color: rgb(18, 108, 168);
+}
+.login_button button
+{
+    color: white;
+    width: 170px;
+    height: 32px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    letter-spacing: 1px;
+}
+#login_btn
+{
+    background-color: rgb(15, 114, 181);
+}
+#cancel_btn
+{
+    color: rgb(112, 111, 111);
+    background-color: rgb(224, 224, 224);
+}

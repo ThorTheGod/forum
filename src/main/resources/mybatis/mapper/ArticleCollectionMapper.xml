@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xidian.forum.mapper.ArticleCollectionMapper">
+
+    <insert id="addCollect" parameterType="com.xidian.forum.pojo.ArticleCollection" useGeneratedKeys="true"
+            keyProperty="collectId">
+        insert into collect(user_id,article_id) values (#{userId},#{articleId})
+    </insert>
+
+    <select id="findCollectByUserId" parameterType="int" resultType="int">
+        select article_id from collect where user_id=#{userId}
+    </select>
+
+    <delete id="deleteCollect">
+        delete from collect where user_id=#{userId} and article_id=#{articleId}
+    </delete>
+
+    <select id="findCollectByArticleId" parameterType="int" resultType="int">
+        select user_id from collect where article_id=#{articleId}
+    </select>
+
+</mapper>

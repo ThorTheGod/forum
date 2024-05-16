@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset='utf-8'>
+        <title>信息与技术交流论坛</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/personal_center.css}">
+    </head>
+    <body>
+        <!-- 顶部导航条 -->
+        <div th:insert="~{common::topbar}"></div>
+        
+        <!--首页展示图片-->
+        <div id="img_1"></div>
+
+        <div th:insert="~{common::person}"></div>
+
+        <!--其他信息（帖子）-->
+        <div class="other">
+            <!--小导航条-->
+            <div th:insert="~{common::middlebar}"></div>
+
+
+            <div class="other_information_1" th:each="collectArticle:${session.collectArticles}">
+                    <span>
+                        <img class="other_1_img" alt='' th:src='@{/images/head_portrait.jpg}'/>
+                    </span>
+                <span class="main_context">
+                        <h1 >标题：[[${collectArticle.getArticleTitle()}]]</h1>
+                        <p th:text="${collectArticle.getContent()}"><a
+                                th:href="@{/show/{id}(id=${collectArticle.getArticleId()})}">内容</a></p>
+                </span>
+                <span class="other_context">
+                        <div class="update_delete">
+                            <a id="button_3" th:href="@{/show/{id}(id=${collectArticle.getArticleId()})}">查看
+                            </a>
+                            <a id="button_4" th:href="@{/cancelCollectAtPer/{id}(id=${collectArticle.getArticleId()})}">取消收藏</a>
+                        </div>
+                        <div class="date">
+                            <p>该帖子上一次活跃时间：</p>
+                            <p th:text="${#dates.format(collectArticle.getActiveTime(),'yyyy-MM-dd HH:mm:ss')}">
+                            </p>
+                        </div>
+                </span>
+            </div>
+        </div>
+
+
+
+            <!--页脚-->
+        <div class="footer">
+            <p>联系我们：xxxxxxxxxxx@qq.com</p>
+        </div>
+    </body>
+</html>

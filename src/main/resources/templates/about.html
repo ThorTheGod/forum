@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset='utf-8'>
+        <title>信息与技术交流论坛--关于我们</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/about.css}">
+    </head>
+    <body>
+        <!-- 顶部导航条 -->
+        <div th:insert="~{common::topbar}"></div>
+
+        <!--主体部分-->
+        <div class="main_part">
+            <div class="main_part_1">
+                <span>
+                    <img id="main_part_img1" th:src="@{/images/mainIcon.jpg}"/>
+                </span>
+                <span class="introduction">
+                    <h1>信息与技术论坛</h1>
+                    <p>本论坛创立于2021年10月10日，旨在为坛友们提供一个交流互助、资源共享的良好平台。
+                        未来我们会对论坛进行多功能的扩展，期待更多的坛友加入我们！
+                        同时，也希望坛友们可以和我们一起维护论坛秩序。</p>
+                </span>
+            </div>
+            <div class="main_part_1">
+                <h1>注册需知</h1>
+                <h2>亲爱的坛友，您好！</h2>
+                <p id="context_1">感谢您准备加入I&T论坛这个大家庭中，我们一直倡导【论坛无垃圾帖，无广告帖，真正打造电脑迷与初学者的家园】。
+                    我们的技术并不高深，我们的网站并不华丽，但我们有一颗热忱的心去学习、去研究、去发现、去追求，最终目的还是为了让所有坛友们通过论坛能够真正提高自己。
+                    感谢关注I&T论坛，我们管理组全体成员会继续努力，争取把论坛的学习环境提升到更高层次，
+                    让大家在论坛能够多学信息与技术知识，最大地提升自己的技术水平，获取有益的信息资源。
+                    祝坛友们都能成功地在论坛里解决自己的问题。</p>
+                <p id="signature">
+                    信息与技术论坛管理组<br>
+                    2021-10-20</p>
+            </div>
+            <div class="main_part_1">
+                <h1>积分规则</h1>
+                <h2>论坛积分的用途有：</h2>
+                <ul>
+                    <li>用于下载资源</li>
+                    <li>用于发帖，鼓励用户参与，并对正确回复/您赞赏的回复给予您的肯定</li>
+                    <li>参与论坛推出的活动</li>
+                </ul>
+                <h2>您可以通过以下操作获取相应积分，具体如下：</h2>
+                <ol>
+                    <li>回复帖子/留言，积分+2，同时还有机会得到楼主的谢礼；</li>
+                    <li>发布主贴，积分+10；</li>
+                    <li>每日签到，积分随签到次数累计增长；</li>
+                    <li>为论坛提供好的建议或意见、参与论坛秩序维护，均可获得一定积分。</li>
+                </ol>
+                <p>积分可增、可减、可赠与，其他用途未来持续更新，最终解释权归I&T论坛所有。</p>
+            </div>
+        </div>
+        <!--页脚-->
+        <div class="footer">
+            <p>联系我们：xxxxxxxxxxx@qq.com</p>
+        </div>
+    </body>
+</html>

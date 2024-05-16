@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset='utf-8'>
+        <title>信息与技术交流论坛--编辑个人资料</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/personalData.css}">
+    </head>
+    <body>
+
+
+        <!--主体部分-->
+        <div class="main_part">
+            <!--基本信息-->
+            <div class="information">
+                <form th:action="@{/updateUser}" method="post">
+                <div class="top_part">
+                    <span class="title">
+                        <h1>基本信息</h1>                    
+                    </span>
+                    <span class="button">
+                        <button id="button_1" type="submit"><a>确定</a></button>
+                        <button id="button_2"><a th:href="@{/personal_center.html}">取消</a></button>
+                    </span>
+                </div>
+
+                <div class="context">
+                    <table cellspacing="10">
+                        <tr>
+                            <td>
+                                用户昵称
+                            </td>
+                            <td>
+                                <input type="text" name="username"
+                                       th:value="${user.username}">
+                            </td>
+                        </tr>
+<!--                        <tr>-->
+<!--                            <td>-->
+<!--                                性别-->
+<!--                            </td>-->
+<!--                            <td>-->
+<!--                                <input type="radio" name="sex" value="male">男-->
+<!--                                <input type="radio" name="sex" value="remale">女-->
+<!--                            </td>-->
+<!--                        </tr>-->
+                        <tr>
+                            <td>
+                                个人简介
+                            </td>
+                            <td>
+                                <input type="text" id="brief" name="sign" th:value="${user.getSign()}">
+                            </td>
+                        </tr>
+<!--                        <tr>-->
+<!--                            <td>-->
+<!--                                出生日期-->
+<!--                            </td>-->
+<!--                            <td>-->
+<!--                                &lt;!&ndash;name="birthday"&ndash;&gt;-->
+<!--                                <input type="date" id="birthday"-->
+<!--                                       th:value="${user.getCreateTime()}">-->
+<!--                            </td>-->
+<!--                        </tr>-->
+                    </table>
+                    <table cellspacing="10">
+                        <tr>
+                            <td>
+                                密码
+                            </td>
+                            <td>
+                                <input type="password" name="password" th:value="${user.getPassword()}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                邮箱
+                            </td>
+                            <td>
+                                <input type="email" name="email" th:value="${user.getEmail()}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                通知提醒
+                            </td>
+                            <td id="message">
+                                <input type="checkbox" name="switch">允许消息推送
+                            </td>
+                        </tr><!--顶部--> <!--账号设置-->
+
+                    </table>
+
+                </div>
+                    <input type="hidden" name="userId" th:value="${session.userId}">
+                    <input type="hidden" name="createTime" th:value="${#dates.format(user.getCreateTime(), 'yyyy-MM-dd HH:mm:ss')}">
+                    <input type="hidden" name="userAvatar" th:value="${filename}">
+                </form>
+                <div class="information">
+                    <form th:action="@{/uploadAvatar}" method="post"  enctype="multipart/form-data">
+                        <span class="headImg">
+                        <img class="header_img1" th:if="${filename==null&&user.getUserAvatar()==null}"
+                             th:src="@{/images/head_portrait.jpg}">
+                        <img class="header_img1" th:if="${filename==null&&user.getUserAvatar()!=null}"
+                             th:src="@{'/upload/'+${user.getUserAvatar()}}">
+                        <img class="header_img1" th:if="${filename}!=null"
+                             th:src="@{'/upload/'+${filename}}">
+                        </span>
+                        <!--accept="image/*"-->
+                        <span class="headBtn">
+                        <input type="file" id="change_file" name="file"><br>
+                        <input type="submit" id="submit_btn" name="submit" value="保存头像">
+                        </span>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset='utf-8'>
+        <title>信息与技术交流论坛--看帖子详情</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/viewPosts.css}">
+        <link rel="stylesheet" th:href="@{/editor.md/css/editormd.preview.min.css}" />
+    </head>
+    <body>
+        <!-- 顶部导航条 -->
+        <div th:insert="~{common::topbar}"></div>
+
+        <!--帖子详情-->
+        <div class="details">
+            <!--帖子具体信息-->
+            <span class="main_part">
+                <div class="user_info">
+                    <span id="user">
+                        <img class="main_part_img1" th:if="${session.userAvatar}==null"
+                             th:src="@{/images/head_portrait.jpg}">
+                        <img  class="main_part_img1" th:if="${session.userAvatar}!=null"
+                                  th:src="'/upload/'+${session.userAvatar}">
+                        <a th:text="${session.username}" id="username"></a>
+                    </span>
+                    <span id="title">
+                        <h1 class="top_part_title" th:text="${session.article.getArticleTitle()}"></h1>
+                        <p class="top_part_date" th:text="${#dates.format(session.article.getCreateTime(), 'yyyy-MM-dd HH:mm:ss')}"></p>
+                    </span>
+                    <span class="top_part_button" th:if="${session.isFan==null}">
+                        <a th:href="@{/befan}" id="top_part_button_follow">关注TA</a>
+                    </span>
+                    <span class="top_part_button"  th:if="${session.isFan!=null}" >
+                        <a th:href="@{/deletefan}" id="top_part_button_cancel">取消关注</a>
+                    </span>
+                </div>
+
+
+                <!--文章详情-->
+                <div class="post_context" >
+                    <div id="content">
+                        <textarea style="display:none;" th:utext="${session.article.getContent()}"></textarea>
+                    </div>
+                </div>
+                <!--点赞等图标-->
+                <div class="post_icon">
+                    <table>
+                        <tr>
+                            <td>
+                                <a th:href="@{/addlove}" th:if="${session.haveLoved==null}">
+                                    <img class="post_praise"  alt=''
+                                         th:src='@{/images/praise.png}'/>
+                                    <p class="number1" th:text="${session.article.getLove()}" >喜欢</p>
+                                </a>
+                                <a th:href="@{/cancelLove}" th:if="${session.haveLoved!=null}">
+                                    <img class="post_praise"  alt=''
+                                         th:src='@{/images/praise2.png}'/>
+                                    <p class="number1" th:text="${session.article.getLove()}" >取消</p>
+                                </a>
+                            </td>
+                            <td >
+                                <a th:href="@{/adddislike}" th:if="${session.haveDisliked==null}">
+                                    <img class="post_bad"  alt=''
+                                         th:src='@{/images/bad.png}'/>
+                                    <p class="number2" th:text="${session.article.getDislike()}">不喜欢</p>
+                                </a>
+                                <a th:href="@{/cancelDislike}" th:if="${session.haveDisliked!=null}">
+                                    <img class="post_bad"  alt='' th:src='@{/images/bad2.png}'/>
+                                    <p class="number2" th:text="${session.article.getDislike()}">取消</p>
+                                </a>
+                            </td>
+                            <td >
+                                <a th:href="@{/collect}" th:if="${session.isCollect!='1'}">
+                                    <img class="post_collect"  alt=''
+                                         th:src='@{/images/collect.png}'/>
+                                    <p>收藏</p>
+                                </a>
+                                <a th:href="@{/cancelCollect}" th:if="${session.isCollect=='1'}">
+                                    <img class="post_collect"  alt=''
+                                         th:src='@{/images/collect2.png}'/>
+                                    <p>取消</p>
+                                </a>
+                            </td>
+                            <td>
+                                <a>
+                                <img class="post_share" alt='' th:src='@{/images/share.png}'/>
+                                <p>分享</p>
+                                </a>
+                            </td>
+                        </tr>    
+                    </table>
+                </div>
+                
+                <!--评论-->
+                <div class="post_comments">
+                    <!--评论框-->
+                    <form th:action="@{/comment}" method="post">
+                        <input type="text" id="your_comment" name="commentContent" placeholder="在这里发表您的看法...">
+
+                        <input type="hidden" name="articleId" th:value="${session.article.getArticleId()}">
+                        <input type="hidden" name="userId" th:value="${session.userId}">
+                        <input type="hidden" name="createTime"
+                               th:value="${#dates.format(#dates.createNow(), 'yyyy-MM-dd HH:mm:ss')}">
+                        <input type="hidden" name="userIdParent" th:value="null">
+                        <input type="submit" id="comment_button" value="评论">
+                    </form>
+                    <!--评论：标题-->
+                    <div class="all_comment">
+                        <span>
+                            <img id="comment_icon" alt='' th:src='@{/images/comment.png}'/>
+                        </span>
+                        <span class="all_comment_title">
+                            <h1>所有评论：共[[${session.commentCount}]]条</h1>
+                        </span>
+                    </div>
+
+                    <!--具体评论：逐条列 按时间-->
+                    <div class="comments">
+                        <div class="comments_1" th:each="userComment:${session.userComments}">
+                            <!--头像-->
+                            <span>
+                                <img class="comments_img1" th:if="${userComment.getUserAvatar()}==null"
+                                     th:src="@{/images/head_portrait.jpg}">
+                                <img  class="comments_img1" th:if="${userComment.getUserAvatar()}!=null"
+                                    th:src="'/upload/'+${userComment.userAvatar}">
+                            </span>
+                            <!--用户回复用户-->
+                            <span class="comments_1_username">
+                                <a th:text="${userComment.username}" style="color: cornflowerblue">用户名/昵称</a>
+                                    <a th:if="${userComment.comment.getUserIdParent()}!=null">  回复  </a>
+                                    <a th:text="${userComment.parentUsername}" style="color: cornflowerblue"></a>
+                            </span>
+                            <!--时间-->
+                            <span class="comments_1_date">
+                                <p th:text="${#dates.format(userComment.comment.getCreateTime(), 'yyyy-MM-dd HH:mm:ss')}">2021-11-10 21:22:22</p>
+                            </span>
+                            <!--评论-->
+                            <div class="context">
+                                <span class="comment_context">
+                                    <p th:text="${userComment.comment.getCommentContent()}">你试试这样：cahiNcbaiuhn
+                                        应该可以实现！  ahfahnnnaihdanxikaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                                    </p>
+                                </span>
+                                <span>
+                                    <!---->
+                                    <button type="button" class="reply_btn" th:onclick="replyShow([[${userComment.comment.getCommentId()}]])">回复</button>
+                                </span>
+                            </div>
+                            <!--回复编写区-->
+                            <div class="writeBox" th:id="${userComment.comment.getCommentId()}">
+                                <form th:action="@{/replyPost}" method="post">
+                                    <input type="text" id="your_reply" name="commentContent"
+                                           placeholder="在这里回复TA...">
+                                    <input type="hidden" name="articleId" th:value="${session.article.getArticleId()}">
+                                    <!--用户评论别人的评论-->
+                                    <input type="hidden" name="userId" th:value="${session.userId}">
+                                    <input type="hidden" name="createTime" th:value="${#dates.format(#dates.createNow(), 'yyyy-MM-dd HH:mm:ss')}">
+                                    <input type="hidden" name="userIdParent"
+                                           th:value="${userComment.comment.getUserId()}">
+                                    <input type="submit" id="reply_submit" value="确定">
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </span>
+            <script type="text/javascript" th:src="@{/js/viewPosts.js}"></script>
+            <!--侧边栏：作者信息、热门推荐等-->
+            <span class="side_part">
+
+                <!--侧边栏1：作者介绍-->
+                <div class="side_1">
+                    <!--大标题-->
+                    <div class="side_1_title">
+                        <h1>关于作者</h1>
+                    </div>
+                    <!--头像、用户名、粉丝数-->
+                    <div class="side_1_top">
+                        <span>
+                            <img class="side_1_img" th:if="${session.userAvatar}==null"
+                                     th:src="@{/images/head_portrait.jpg}">
+                            <img  class="side_1_img" th:if="${session.userAvatar}!=null"
+                                      th:src="'/upload/'+${session.userAvatar}">
+                        </span>
+                        <span class="side_1_other">
+                            <h1 th:text="${session.username}">用户名</h1>
+                            <p>粉丝数：[[${session.fansCount}]]</p>
+                        </span>
+                    </div>
+                    <!--其他-->
+                    <div class="side_1_detail">
+                        <table>
+                            <tr>
+                                <td>
+                                    <p th:text="${session.articleCount}">18</p>
+                                    <p>原创</p>
+                                </td>
+                                <td>
+                                    <p th:text="${session.collectCount}">50</p>
+                                    <p>获收藏</p>
+                                </td>
+                                <td>
+                                    <p th:text="${session.articleLove}">192</p>
+                                    <p>获赞</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p th:text="${session.articleClick}">239</p>
+                                    <p>访问</p>
+                                </td>
+                                <td>
+                                    <p th:text="${session.allCommentCount}">40</p>
+                                    <p>被评论</p>
+                                </td>
+                                <td>
+                                    <p>400</p>
+                                    <p>积分</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!--侧边栏2：热门文章-->
+                <div class="side_2">
+                    <!--大标题-->
+                    <div class="side_2_title">
+                        <h1>热门文章</h1>
+                    </div>
+                    <div class="side_2_context">
+                        <ul>
+                            <li>【技术】<a
+                                    th:href="@{/show/{id}(id=${session.techHotArticle.getArticleId()})}"
+                                       th:text="${session.techHotArticle.getArticleTitle()}"></a></li>
+                            <li>【资源】<a
+                                    th:href="@{/show/{id}(id=${session.resourceHotArticle.getArticleId()})}"
+                                    th:text="${session.resourceHotArticle.getArticleTitle()}"></a></li>
+                            <li>【灌水】<a
+                                    th:href="@{/show/{id}(id=${session.discussHotArticle.getArticleId()})}"
+                                    th:text="${session.discussHotArticle.getArticleTitle()}"></a></li>
+                        </ul>
+                    </div>                    
+                </div>
+            </span>
+        </div>
+
+
+        <!--页脚-->
+        <div class="footer">
+            <p>联系我们：xxxxxxxxxxx@qq.com</p>
+        </div>
+    </body>
+    <script type="text/javascript" th:src="@{/js/viewPosts.js}"></script>
+    <script th:src="@{/editor.md/jquery-3.5.1.min.js}"></script>
+    <script th:src="@{/editor.md/editormd.js}"></script>
+    <script th:src="@{/editor.md/lib/marked.min.js}"></script>
+    <script th:src="@{/editor.md/lib/prettify.min.js}"></script>
+    <script type="text/javascript">
+        $(function() {
+            var testView = editormd.markdownToHTML("content", {
+                // markdown : "[TOC]\n### Hello world!\n## Heading 2", // Also, you can dynamic set Markdown text
+                // htmlDecode : true,  // Enable / disable HTML tag encode.
+                // htmlDecode : "style,script,iframe",  // Note: If enabled, you should filter some dangerous HTML tags for website security.
+                htmlDecode: "style,script,iframe",
+                emoji: true,
+                taskList: true,
+                tocm: true,
+                tex: true, // 默认不解析
+                flowChart: true, // 默认不解析
+                sequenceDiagram: true, // 默认不解析
+                codeFold: true
+            });
+        });
+
+
+    </script>
+
+
+</html>

@@ -1,0 +1,237 @@
+body
+{
+    background-color: rgb(248, 248, 248);
+    width: 100%;
+    letter-spacing: 1px;
+    margin: 0;
+    padding: 0;
+}
+body a
+{
+    text-decoration: none;
+    color: rgb(112, 111, 111);
+}
+.header
+{
+    height: auto;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: rgb(248, 245, 245);
+    text-align: center;
+}
+
+/*导航栏*/
+/*第一部分：论坛名称*/
+.navbar
+{
+    float: left;
+    color: rgb(112, 111, 111);
+    font-size: 16px;
+    width: 100%;
+    overflow: hidden;
+}
+.navbar span
+{
+    float: left;
+}
+.nav_1
+{
+    width: 22%;
+    /*new*/
+    /*float: left;*/
+}
+.nav_1 ul
+{
+    list-style-type: none;
+    text-align: center;
+}
+#nav_name_1
+{
+    font-size: 36px;
+    color: rgb(25, 80, 225);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/*第二部分：搜索框*/
+.container
+{
+    width: 30%;
+    height: auto;
+    float: left;
+}
+.parent
+{
+    position: relative;
+}
+.search
+{
+    width: 300px;
+    height: 40px;
+    border-radius: 18px;
+    border: 1px solid #ccc;
+    padding-left: 20px;
+    position: absolute;
+    margin-top: 8%;
+    margin-left: -50%;
+}
+.btn
+{
+    height: 40px;
+    width: 60px;
+    position: absolute;
+    cursor: pointer;
+    margin-left: 30%;
+    margin-top: 8%;
+    border-width: 1px;
+    border-radius: 25px;
+    background: rgb(5, 129, 129);
+    color: white;
+}
+
+/*第三部分：导航按钮*/
+.nav_2
+{
+    height: auto;
+    width: 46%;
+    color: rgb(112, 111, 111);
+    margin-left: 30%;
+}
+.nav_2 ul
+{
+    margin: 0;
+    padding: 0;
+}
+.nav_2 li
+{
+    padding: 40px 15px;
+    display: inline;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    overflow: hidden;
+    float: left;
+    margin-left: 35px;
+    max-width: 15%;
+    text-overflow: ellipsis;
+}
+.nav_2 li:hover
+{
+    background-color:rgba(175, 170, 170, 0.6)
+}
+
+/*主体部分*/
+/*头部*/
+.main_part
+{
+    width: 82%;
+    display: block;
+    margin-top: 100px;
+    background-color: white;
+    overflow: hidden;
+    margin-left: 8%;
+}
+.main_part_top span
+{
+    float: left;
+}
+.main_part_title
+{
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    overflow: hidden;
+}
+.main_part_title h1
+{
+    font-size: 20px;
+    color: rgb(112, 111, 111);
+}
+#back_icon
+{
+    width: 30px;
+    height: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 130px;
+}
+/*中部*/
+.main_part_center
+{
+    width: 92%;
+    margin-left: 4%;
+    padding: 20px 50px 20px 50px;
+    display: block;
+    overflow: hidden;
+    border-top: 1.5px solid rgb(173, 173, 173);
+}
+.main_part_center h1,h2
+{
+    font-size: 18px;
+    color: rgb(112, 111, 111);
+}
+#post_title /*帖子标题*/
+{
+    width: 85%;
+    padding: 8px;
+    height: 20px;
+}
+#post_partition /*帖子分区*/
+{
+    width: 87%;
+    height: 36px;
+    padding: 8px;
+}
+#article_content{
+    cursor: pointer;
+    position: relative;
+    margin-left: 7%;
+}
+/*发布/保存按钮*/
+.buttons
+{
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.buttons button
+{
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 100px;
+    height: 32px;
+}
+#btn_1
+{
+    background-color: rgb(15,144,181);
+    margin-left: 35%;
+}
+#btn_1:hover{
+     background-color: #00c4ff;
+ }
+#btn_2
+{
+    background-color: rgb(22,149,21);
+    margin-left: 10%;
+}
+#btn_2:hover{
+    background-color: #00d95a;
+}
+/*页脚*/
+.footer
+{
+    background-color: rgb(248, 245, 245);
+    width: 100%;
+    height: 50px;
+}
+.footer p
+{
+    font-size: 14px;
+    text-align: center;
+    padding: 16px;
+    color: rgb(20, 20, 20);
+}

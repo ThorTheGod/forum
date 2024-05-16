@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset='utf-8'>
+        <title>信息与技术交流论坛</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/personal_center.css}">
+    </head>
+    <body>
+        <!-- 顶部导航条 -->
+        <div th:insert="~{common::topbar}"></div>
+        
+        <!--首页展示图片-->
+        <div id="img_1"></div>
+
+        <div th:insert="~{common::person}"></div>
+
+        <!--其他信息（帖子）-->
+        <div class="other">
+            <!--小导航条-->
+            <div th:insert="~{common::middlebar}"></div>
+
+            <!--用户发的帖子-->
+            <div class="other_information_1" th:each="article:${session.articles}">
+                <span>
+                    <img class="other_1_img" alt='' th:src='@{/images/head_portrait.jpg}'
+                         th:href="@{/show/{id}(id=${article.getArticleId()})}"/>
+                </span>
+                <span class="main_context">
+                    <h1>
+                    <a
+                       th:href="@{/show/{id}(id=${article.getArticleId()})}">标题：[[${article.getArticleTitle()}]]</a></h1>
+                    <p >
+                    <a  th:text="${article.getContent()}"
+                       th:href="@{/show/{id}(id=${article.getArticleId()})}">内容</a></p>
+                </span>
+                <span class="other_context">
+                    <div class="update_delete">
+                        <a id="button_3" th:href="@{/update/{id}(id=${article.getArticleId()})}">修改</a>
+                        <a id="button_4" th:href="@{/delete/{id}(id=${article.getArticleId()})}">删除</a>
+                    </div>
+                    <div class="date">
+                        <p>上一次修改时间：</p>
+                        <p
+                            th:text="${#dates.format(article.getActiveTime(),'yyyy-MM-dd HH:mm:ss')}"></p>
+                    </div>
+                </span>
+            </div>
+        </div>
+
+
+
+
+            <!--页脚-->
+        <div class="footer">
+            <p>联系我们：xxxxxxxxxxx@qq.com</p>
+        </div>
+    </body>
+    <script th:src="@{/js/personal_center.js}"></script>
+</html>

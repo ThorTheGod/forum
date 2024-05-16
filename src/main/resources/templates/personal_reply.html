@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset='utf-8'>
+        <title>信息与技术交流论坛</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/personal_center.css}">
+    </head>
+    <body>
+        <!-- 顶部导航条 -->
+        <div th:insert="~{common::topbar}"></div>
+        
+        <!--首页展示图片-->
+        <div id="img_1"></div>
+
+        <div th:insert="~{common::person}"></div>
+
+        <!--其他信息（评论）-->
+        <div class="other">
+            <!--小导航条-->
+            <div th:insert="~{common::middlebar}"></div>
+            <div class="other_info">
+                <!--评论-->
+                <div class="other_information_1" th:each="userComment:${session.userComments}">
+                        <!--头像-->
+                        <span>
+                            <img class="other_1_img" th:if="${userComment.getUserAvatar()}==null"
+                                 th:src="@{/images/head_portrait.jpg}">
+                            <img  class="other_1_img" th:if="${userComment.getUserAvatar()}!=null"
+                              th:src="'/upload/'+${userComment.getUserAvatar()}">
+                        </span>
+                        <!--用户回复用户-->
+                        <span class="main_context">
+                            <h1><a style="color: cornflowerblue">你</a> 评论了 <a th:text="${userComment.parentUsername}" style="color:
+                                cornflowerblue">C</a>
+                                </h1>
+                                <h3><a
+                                        th:href="@{/show/{id}(id=${userComment.getComment().getArticleId()})}">帖子标题：[[${userComment
+                                    .username}]]</a></h3>
+                                <p th:text="${userComment.comment.getCommentContent()}">内容！</p>
+                        </span>
+                        <!--修改框-->
+                        <span class="other_context">
+                                <div class="update_delete">
+                                    <a class="aaa" id="button_3"
+                                       th:onclick="modifyShow([[${userComment.comment.getCommentId()}]])">修改</a>
+                                    <a class="aaa" id="button_4"
+                                       th:href="@{/deleteComment/{id}(id=${userComment.comment.getCommentId()})}"
+                                            >删除</a>
+                                </div>
+                                <div class="date">
+                                    <p>上一次更新时间：</p>
+                                    <p th:text="${#dates.format(#dates.createNow(),'yyyy-MM-dd HH:mm:ss')}">
+                                    </p>
+                                </div>
+                        </span>
+                        <!--修改回复编写区-->
+                        <div  class="writeBox" th:id="${userComment.comment.getCommentId()}">
+                            <form th:action="@{/updateComment}" method="post">
+                                <input type="text" id="your_reply" placeholder="在这里修改您的回复..."
+                                       name="commentContent"
+                                       th:value="${userComment.comment.getCommentContent()}">
+                                <input type="hidden" name="commentId" th:value="${userComment.comment.getCommentId()}">
+                                <input type="hidden" name="articleId" th:value="${userComment.comment.getArticleId()}">
+                                <input type="hidden" name="userId" th:value="${userComment.comment.userId}">
+                                <input type="hidden" name="createTime" th:value="${#dates.format(#dates.createNow(), 'yyyy-MM-dd HH:mm:ss')}">
+                                <input type="hidden" name="userIdParent" th:value="${userComment.comment.getUserIdParent()}">
+                                <input type="submit" id="reply_submit" value="确定">
+                            </form>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" th:src="@{/js/personal_center.js}"></script>
+
+
+
+            <!--页脚-->
+        <div class="footer">
+            <p>联系我们：xxxxxxxxxxx@qq.com</p>
+        </div>
+    </body>
+</html>

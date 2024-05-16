@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xidian.forum.mapper.CommentMapper">
+
+    <select id="getCommentByArticleId" resultType="Comment" parameterType="int">
+        select * from comment where article_id=#{id}
+    </select>
+
+
+    <select id="getCommentByUserId" resultType="com.xidian.forum.pojo.Comment" parameterType="int">
+        select * from comment where user_id=#{id} order by create_time DESC
+    </select>
+
+    <select id="getReplyByUserId" parameterType="int" resultType="com.xidian.forum.pojo.Comment">
+        select * from comment where  user_id_parent=#{userId} order by create_time DESC
+    </select>
+    
+    <select id="getCommentCountByArticleId" resultType="Integer" parameterType="int">
+        select count(comment_id) from comment where article_id=#{id}
+    </select>
+
+
+    <insert id="addComment" parameterType="com.xidian.forum.pojo.Comment" useGeneratedKeys="true"
+            keyProperty="commentId">
+        insert into comment(article_id,user_id,comment_content,create_time,user_id_parent) values
+        (#{articleId},#{userId},#{commentContent},#{createTime},#{userIdParent})
+    </insert>
+
+    <update id="updateComment" parameterType="com.xidian.forum.pojo.Comment">
+        update comment set
+        article_id=#{articleId},user_id=#{userId},comment_content=#{commentContent},create_time=#{createTime},user_id_parent=#{userIdParent}
+        where comment_id=#{commentId}
+    </update>
+
+    <delete id="deleteComment" parameterType="int">
+        delete from comment where comment_id=#{commentId}
+    </delete>
+
+
+
+</mapper>

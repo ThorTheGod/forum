@@ -1,0 +1,465 @@
+body
+{
+    background-color: rgb(248, 248, 248);
+    width: 100%;
+    letter-spacing: 1px;
+    margin: 0;
+    padding: 0;
+}
+body a
+{
+    text-decoration: none;
+    color: rgb(112, 111, 111);
+}
+.header
+{
+    height: auto;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: rgb(248, 245, 245);
+    text-align: center;
+}
+
+/*导航栏*/
+/*第一部分：论坛名称*/
+.navbar
+{
+    float: left;
+    color: rgb(112, 111, 111);
+    font-size: 16px;
+    width: 100%;
+    overflow: hidden;
+}
+.navbar span
+{
+    float: left;
+}
+.nav_1
+{
+    width: 22%;
+}
+.nav_1 ul
+{
+    list-style-type: none;
+    text-align: center;
+}
+#nav_name_1
+{
+    font-size: 36px;
+    color: rgb(25, 80, 225);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/*第二部分：搜索框*/
+.container
+{
+    width: 30%;
+    height: auto;
+    float: left;
+}
+.parent
+{
+    position: relative;
+}
+.search
+{
+    width: 276px;
+    height: 35px;
+    border-radius: 18px;
+    border: 1px solid #ccc;
+    padding-left: 20px;
+    position: absolute;
+    margin-top: 8%;
+    margin-left: -50%;
+}
+.btn
+{
+    height: 40px;
+    width: 60px;
+    position: absolute;
+    cursor: pointer;
+    margin-left: 30%;
+    margin-top: 8%;
+    border-width: 1px;
+    border-radius: 25px;
+    background: rgb(5, 129, 129);
+    color: white;
+}
+
+/*第三部分：导航按钮*/
+.nav_2
+{
+    height: auto;
+    width: 46%;
+    color: rgb(112, 111, 111);
+    margin-left: 30%;
+}
+.nav_2 ul
+{
+    margin: 0;
+    padding: 0;
+}
+.nav_2 li
+{
+    padding: 40px 15px;
+    display: inline;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    overflow: hidden;
+    float: left;
+    margin-left: 35px;
+    max-width: 15%;
+    text-overflow: ellipsis;
+}
+.nav_2 li:hover
+{
+    background-color:rgba(175, 170, 170, 0.6)
+}
+
+/*版头图片*/
+#img_1
+{
+    display: block;
+    margin-top: 10px;
+    width: 100%;
+    height: 500px;
+    background-image: url(../images/p_c.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 84% 70%;
+    z-index: -1;
+}
+
+/*个人信息*/
+.person
+{
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    margin-top: -75px;
+    /*border: 1px solid black;*/
+}
+.person span
+{
+    float: left;
+}
+.person_img_total{
+    margin-left: 6.7%;
+}
+/*头像框*/
+.person_img
+{
+    width: 180px;
+    height: 150px;
+    margin-left: 10%;
+    background-position: center center;
+    background-size: 100% 100%;
+    /*background-color: white;*/
+}
+/*个人资料*/
+.person_information
+{
+    width: 36%;
+    margin-left: 1.4%;
+    /*border: 1px solid black;*/
+}
+.person_information h1
+{
+    font-size: 18px;
+    color: rgb(112, 111, 111);
+    margin-left: 10px;
+}
+.person_information table
+{
+    color: rgb(112, 111, 111);
+    margin-left: 7px;
+}
+.person_information td
+{
+    width: 8%;
+    text-align: left;
+    text-decoration: none;
+}
+.person_information p
+{
+    color: rgb(112, 111, 111);
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+/*修改资料按钮*/
+.change
+{
+    width: 30%;;
+    margin-top: 40px;
+    margin-left: 2%;
+}
+.change button
+{
+    height: 32px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+
+#post1 {
+    color: white;
+}
+#post2{
+    color: white;
+}
+#button_1
+{
+    background-color: rgb(15,144,181);
+    width: 120px;    
+    margin-left: 12%;
+
+}
+#button_1:hover{
+    background-color: #00c4ff;
+}
+#button_2
+{
+    background-color: rgb(22,149,21);
+    width: 100px;
+    margin-left: 8%;
+}
+#button_2:hover{
+    background-color: #00d95a;
+}
+
+
+/*其他信息*/
+.other
+{
+    display: block;
+    width: 84%;
+    margin-top: 10px;
+    height: auto;
+    overflow: hidden;
+    background-color: white;
+    margin-left: 8%;
+}
+/*小导航条*/
+.other_navbar table
+{
+    border-collapse: collapse;
+    color: rgb(112, 111, 111);
+    background-color: white;
+    margin-left: 25px;
+}
+.other_navbar td
+{
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    /*border: 1px solid rgb(167, 166, 166);*/
+}
+.other_navbar td:hover
+{
+    background-color: #ccc;
+}
+.other_navbar td:active
+{
+    background-color: rgb(56,148,255);
+}
+.other_navbar a
+{
+   display: block;
+
+}
+
+
+.other_info{
+    width: 100%;
+    overflow: hidden;
+}
+
+/*具体查看内容*/
+.other_information_1
+{
+    display: block;
+    overflow: hidden;
+    width: 94%;
+    /*height: 140px;*/
+    margin-left: 25px;
+    margin-bottom: 10px;
+    border-top: 1px solid rgb(167, 166, 166);
+    border-bottom: 1px solid rgb(167, 166, 166);
+    /*border: 1px solid rgb(167, 166, 166);*/
+}
+.other_information_1 span
+{
+    float: left;
+}
+
+.other_1_img {
+    margin: 20px;
+    width: 160px;
+    height: 100px;
+}
+/*用户回复用户*/
+.main_context {
+    width: 50%;
+    height: 120px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /*border: 1px solid rgb(167, 166, 166);*/
+}
+.main_context h1 {
+    font-size: 20px;
+    color: rgb(112, 111, 111);
+    /*600x26*/
+    overflow: hidden;
+    /*所有文本都显示一行*/
+    white-space: nowrap;
+    /*多余文本用省略号显示*/
+    text-overflow: ellipsis;
+}
+.main_context h3 {
+    color: rgb(112, 111, 111);
+    font-size: 14px;
+    line-height: 140%;
+    text-align: justify;
+    /*超过指定宽度高度隐藏数据 600x20*/
+    overflow: hidden;
+    /*所有文本都显示一行*/
+    white-space: nowrap;
+    /*多余文本用省略号显示*/
+    text-overflow: ellipsis;
+}
+.main_context p {
+    color: rgb(112, 111, 111);
+    font-size: 14px;
+    line-height: 140%;
+    text-align: justify;
+    /*超过指定宽度高度隐藏数据 600x20*/
+    overflow: hidden;
+    /*所有文本都显示一行*/
+    white-space: nowrap;
+    /*多余文本用省略号显示*/
+    text-overflow: ellipsis;
+}
+/*修改删除框*/
+.other_context {
+    display: block;
+    width: 20%;
+    margin-left: 8%;
+    height: 120px;
+    margin-top: 10px;
+    /*border: 1px solid rgb(167, 166, 166);*/
+}
+.date {
+    font-size: 12px;
+    color: rgb(112, 111, 111);
+    margin-left: 30px;
+
+}
+.date p{
+    margin: 5px;
+}
+.update_delete{
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    /*水平居中*/
+    align-items: center;
+    /*垂直居中*/
+}
+.update_delete a{
+    float: left;
+}
+.aaa{
+    float: left;
+}
+/*修改&删除按钮*/
+#button_3 {
+    display: block;
+    color: white;
+    background-color: rgb(15,144,181);
+    border: none;
+    border-radius: 4px;
+    width: 60px;
+    height: 40px;
+    font-size: 14px;
+    vertical-align: center;
+    line-height: 40px;
+    text-align: center;
+    margin-right: 50px;
+}
+#button_3:hover{
+    background-color: #00c4ff;
+}
+#button_4 {
+    display: block;
+    color: white;
+    background-color: rgb(195,43,43);
+    border: none;
+    border-radius: 4px;
+    width: 60px;
+    height: 40px;
+    font-size: 14px;
+    vertical-align: center;
+    line-height: 40px;
+    text-align: center;
+    /*horiz-align: center;*/
+}
+#button_4:hover{
+    background-color: #9d1e15;
+}
+#cancel {
+    width: 85px;
+}
+
+/*回复编写区*/
+.writeBox
+{
+    display: none;
+    overflow: hidden;
+    width: 90%;
+    margin-left: 5%;
+    /*border: 1px solid black;*/
+}
+#your_reply
+{
+    margin: 5px;
+    height: 50px;
+    width: 80%;
+}
+#reply_submit /*提交回复按钮*/
+{
+    height: 30px;
+    width: 50px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background: rgb(15,144,181);
+    color: white;
+    margin-left: 3.5%;
+}
+#reply_submit:hover{
+    background-color: #00c4ff;
+}
+
+
+
+/*页脚*/
+.footer
+{
+    background-color: rgb(248, 245, 245);
+    width: 100%;
+    height: 50px;
+}
+.footer p
+{
+    font-size: 14px;
+    text-align: center;
+    padding: 16px;
+    color: rgb(20, 20, 20);
+}

@@ -1,0 +1,588 @@
+body
+{
+    background-color: rgb(248, 248, 248);
+    width: 100%;
+    letter-spacing: 1px;
+    margin: 0;
+    padding: 0;
+}
+body a
+{
+    text-decoration: none;
+    color: rgb(112, 111, 111);
+}
+.header
+{
+    height: auto;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: rgb(248, 245, 245);
+    text-align: center;
+}
+
+/*导航栏*/
+/*第一部分：论坛名称*/
+.navbar
+{
+    float: left;
+    color: rgb(112, 111, 111);
+    font-size: 16px;
+    width: 100%;
+    overflow: hidden;
+}
+.navbar span
+{
+    float: left;
+}
+.nav_1
+{
+    width: 22%;
+}
+.nav_1 ul
+{
+    list-style-type: none;
+    text-align: center;
+}
+#nav_name_1
+{
+    font-size: 36px;
+    color: rgb(25, 80, 225);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/*第二部分：搜索框*/
+.container
+{
+    width: 30%;
+    height: auto;
+    float: left;
+}
+.parent
+{
+    position: relative;
+}
+.search
+{
+    width: 276px;
+    height: 35px;
+    border-radius: 18px;
+    border: 1px solid #ccc;
+    padding-left: 20px;
+    position: absolute;
+    margin-top: 8%;
+    margin-left: -50%;
+}
+.btn
+{
+    height: 40px;
+    width: 60px;
+    position: absolute;
+    cursor: pointer;
+    margin-left: 30%;
+    margin-top: 8%;
+    border-width: 1px;
+    border-radius: 25px;
+    background: rgb(5, 129, 129);
+    color: white;
+}
+
+/*第三部分：导航按钮*/
+.nav_2
+{
+    height: auto;
+    width: 46%;
+    color: rgb(112, 111, 111);
+    margin-left: 30%;
+}
+.nav_2 ul
+{
+    margin: 0;
+    padding: 0;
+}
+.nav_2 li
+{
+    padding: 40px 15px;
+    display: inline;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    overflow: hidden;
+    float: left;
+    margin-left: 35px;
+    max-width: 15%;
+    text-overflow: ellipsis;
+}
+.nav_2 li:hover
+{
+    background-color:rgba(175, 170, 170, 0.6)
+}
+
+/*主体*/
+/*帖子详情*/
+.details
+{
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    margin-top: 105px;
+    /*border: 1px solid black;*/
+}
+.details span
+{
+    float: left;
+}
+/*文章具体内容*/
+.main_part
+{
+    width: 60%;
+    margin-left: 8%;
+    /*border: 1px solid black;*/
+    background-color: white;
+}
+.user_info{
+    display: block;
+    height: auto;
+}
+/*头部*/
+.main_part_img1
+{
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin: 20px;
+    border-radius: 25px;
+}
+#user{
+    display: block;
+    overflow: hidden;
+    text-align: center;
+    margin-left: 3%;
+}
+#title{
+    display: block;
+    height: auto;
+    width: 50%;
+    margin-left: 4%;
+}
+.top_part_title /*标题*/
+{
+    width: auto;
+    margin-top: 30px;
+    overflow: hidden;
+    /*border: 1px solid black;*/
+    border-bottom: 1px solid black;
+    font-size: 20px;
+    color: rgb(112, 111, 111);
+}
+.top_part_date /*时间*/
+{
+    width: 35%;
+    margin-top: 25px;
+    border-bottom: 1px solid black;
+    font-size: 12px;
+    color: rgb(112, 111, 111);
+}
+.top_part_button
+{
+    width: 14%;
+    margin-top: 30px;
+    margin-left: 12%;
+    border: none;
+}
+.top_part_button a{
+    display: block;
+    text-align: center;
+    margin: 5px;
+    color: white;
+    font-size: 16px;
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    border-radius: 5px;
+}
+#top_part_button_follow
+{
+    background-color: rgb(15,114,181);
+}
+
+#top_part_button_cancel{
+    background-color: #9d9d9d;
+}
+/*文章详情*/
+.post_context
+{
+    overflow: visible;
+    display: block;
+    width: 95%;
+    margin-left: 15px;
+    /*border: 1px solid black;*/
+}
+.post_context h1 /*文章标题*/
+{
+    font-size: 20px;
+    color: rgb(112, 111, 111);
+}
+#content
+{
+    /*font-size: 14px;*/
+    /*color: rgb(112, 111, 111);*/
+    /*line-height: 140%;*/
+    width: 95%;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+}
+
+
+/*评论、点赞、浏览等信息*/
+.post_icon 
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20%;
+    height: 40px;
+}
+.post_icon table
+{
+    width: 56%;
+    margin-left: 40%;
+    /*border: 1px solid rgb(0, 0, 0);*/
+}
+.post_icon td
+{
+    padding: 5px;
+    text-align: center;
+    width: 14%;
+    /*border: 1px solid rgb(0, 0, 0);*/
+}
+.post_bad,.post_praise,.post_collect,.post_share/*评论图标*/
+{
+    display: block;
+    width: 30px;
+    height: 30px;
+}
+.post_icon td p
+{
+    margin-left: 36px;
+    margin-top: -25px;
+    /*line-height:46px;*/
+
+}
+/*该帖子收到的评论信息*/
+.post_comments
+{
+    width: 100%;
+    overflow: visible;
+    margin-top: 30px;
+    border-top: 1.5px solid rgb(173, 173, 173);
+}
+/*评论框*/
+#your_comment
+{
+    margin: 20px;
+    height: 50px;
+    width: 80%;
+}
+#comment_button
+{
+    height: 30px;
+    width: 50px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background: rgb(15, 114, 181);
+    color: white;
+}
+
+/*帖子收到的所有评论*/
+.all_comment
+{
+    width: 90%;
+    display: block;
+    overflow: hidden;
+    margin-left: 3%;
+}
+.all_comment span
+{
+    float: left;
+}
+
+#comment_icon  /*图标*/
+{
+    display: block;
+    width: 30px;
+    height: 30px;
+}
+.all_comment_title
+{
+    width: 30%;
+    margin-top: -8px;
+    margin-left: 10px;
+}
+.all_comment_title h1
+{
+    font-size: 16px;
+    color: rgb(112, 111, 111);
+}
+
+/*收到的评论*/
+.comments
+{
+    width: 100%;
+    overflow: hidden;
+    margin-top: 10px;
+}
+.comments span
+{
+    float: left;
+}
+.comments_1  /*评论1*/
+{
+    width: 92%;
+    overflow: hidden;
+    display: block;
+    margin-left: 3%;
+    border-top: 1px solid rgb(0, 0, 0);
+    border-bottom: 1px solid rgb(0, 0, 0);
+}
+.comments_img1  /*评论者头像*/
+{
+    width: 50px;
+    height: 50px;
+    margin: 15px;
+    border-radius: 25px;
+}
+.comments_1_username /*用户名*/
+{
+    width: 40%;
+    margin-top: 25px;
+    overflow: hidden;
+    /*border: 1px solid black;*/
+}
+.comments_1_username h1
+{
+    font-size: 16px;
+    color: rgb(112, 111, 111);
+}
+.comments_1_date /*时间*/
+{
+    width: 20%;
+    margin-left: 26%;
+    text-align: right;
+    margin-top: 17px;
+    /*border: 1px solid black;*/
+}
+.comments_1_date p
+{
+    font-size: 12px;
+    color: rgb(112, 111, 111);
+}
+/*以下，增加回复他人评论按钮（12.25）*/
+.context
+{
+    width: 88%;
+    overflow: hidden;
+    display: block;
+    margin-left: 8%;
+}
+.context span
+{
+    float: left;
+}
+.comment_context  /*具体的评论内容*/
+{
+    width: 86%;
+    border: 1px solid rgb(0, 0, 0);
+}
+.comment_context p
+{
+    font-size: 14px;
+    text-align: justify;
+    color: rgb(112, 111, 111);
+    line-height: 140%;
+    width: 100%;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+}
+/*回复*/
+.reply_btn /*回复TA按钮*/
+{
+    margin-left: 20px;
+    margin-top: 10px;
+    height: 30px;
+    width: 50px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background: rgb(15, 114, 181);
+    color: white;
+}
+/*回复编写区*/
+.writeBox
+{
+    display: none;
+    overflow: hidden;
+    width: 86%;
+    margin-left: 9.5%;
+    /*border: 1px solid black;*/
+}
+#your_reply
+{
+    margin: 5px;
+    height: 50px;
+    width: 80%;
+}
+#reply_submit /*提交回复按钮*/
+{
+    height: 30px;
+    width: 50px;
+    margin-left: 7.5%;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background: rgb(15, 114, 181);
+    color: white;
+}
+
+
+
+/*侧边栏*/
+.side_part
+{
+    width: 22%;
+    margin-left: 2%;
+    /*border: 1px solid black;*/
+}
+/*侧边栏1:关于作者*/
+.side_1
+{
+    width: 100%;
+    display: block;
+    height: 360px;
+    background-color: white;
+}
+.side_1_title
+{
+    border-bottom: 1.5px solid rgb(173, 173, 173);
+    margin-top: -10px;
+    width: 100%;
+    overflow: hidden;
+}
+.side_1_title h1
+{
+    color: rgb(112, 111, 111);
+    font-size: 20px;
+    margin-left: 15px;
+    margin-top: 22px;
+}
+
+.side_1_top span
+{
+    float: left;
+}
+.side_1_img /*头像*/
+{
+    width: 60px;
+    height: 60px;
+    margin: 15px;
+    border-radius: 30px;
+}
+
+/*作者信息*/
+.side_1_other
+{
+    width: 60%;
+    /*border: 1px solid black;*/
+    overflow: hidden;
+}
+.side_1_other h1
+{
+    color: rgb(112, 111, 111);
+    font-size: 20px;
+}
+.side_1_other p
+{
+    color: rgb(112, 111, 111);
+    font-size: 14px;
+}
+
+.side_1_detail table
+{
+    
+    border-collapse: collapse;
+    width: 98%;
+    margin-left: 1%;
+}
+.side_1_detail td
+{
+    color: rgb(112, 111, 111);
+    text-align: center;
+    padding: 10px;
+    /*border: 1px solid black;*/
+}
+.side_1_detail p
+{
+    font-size: 14px;
+    line-height: 100%;
+}
+
+/*侧边栏2:热门文章*/
+.side_2
+{
+    width: 100%;
+    height: auto;
+    margin-top: 15px;
+    background-color: white;
+}
+.side_2_title
+{
+    border-bottom: 1.5px solid rgb(173, 173, 173);
+    width: 100%;
+    overflow: hidden;
+}
+.side_2_title h1
+{
+    color: rgb(112, 111, 111);
+    font-size: 20px;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+/*具体推荐的热门文章*/
+.side_2_context
+{
+    width: 100%;
+    height: auto;
+
+}
+.side_2_context ul
+{
+    list-style: none;
+    font-size: 16px;
+    color: rgb(112, 111, 111);
+    line-height: 200%;
+    margin-left: -24px;
+    overflow: hidden;
+    /*多余文本用省略号显示*/
+    text-overflow: ellipsis;
+    /*所有文本都显示一行*/
+    white-space: nowrap;
+}
+
+
+/*页脚*/
+.footer
+{
+    background-color: rgb(248, 245, 245);
+    width: 100%;
+    height: 50px;
+}
+.footer p
+{
+    font-size: 14px;
+    text-align: center;
+    padding: 16px;
+    color: rgb(20, 20, 20);
+}

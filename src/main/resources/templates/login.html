@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset='utf-8'>
+        <title>信息与技术交流论坛--登录</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
+    </head>
+    <body>
+        <div class="login">
+            <div class="login_top">
+                <h1>登录</h1>
+            </div>
+            <div class="login_center">
+                <form id="loginForm" th:action="@{/user/login}" method="post">
+                    <input type="text" id="username" name="username" placeholder="用户名/邮箱"><br>
+                    <input type="password" id="password" name="password" placeholder="密码">
+                    <!--按钮：去注册、登录、取消-->
+                    <p style="color: red" th:text="${msg}"></p>
+                    <div class="login_button">
+                        还没有账号？<a id="register_btn" th:href="@{/register.html}">立即注册</a><br>
+                        <button id="login_btn" type="submit">立即登录</button><br>
+                        <button id="cancel_btn">取消</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
